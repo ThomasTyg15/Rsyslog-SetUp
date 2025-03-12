@@ -16,6 +16,8 @@ This repository guides you through setting up a secure remote logging system usi
 
 ## directory structure
 remote-logging-system/
+
+```
 │
 ├── README.md                  # Detailed README file with setup instructions
 ├── remote-logging-setup.pdf   # Detailed PDF explaining the project and steps
@@ -27,28 +29,27 @@ remote-logging-system/
 └── server/                   # Directory for server configuration files
     ├── rsyslog.conf          # Main rsyslog configuration file for the server
     └── 50-default.conf        # Additional rsyslog configuration for the server
+```
+
 
 ## Introduction
 
-In modern IT environments, logging and monitoring are essential for maintaining system security and performance. This project focuses on setting up a secure remote logging system using rsyslog, which centralizes logs from multiple machines and ensures secure transmission using TLS encryption.
+In modern IT environments, logging and monitoring are essential for maintaining system security and performance. This project focuses on setting up a secure remote logging system using rsyslog, which centralizes logs from multiple machines and ensures secure transmission using TLS encryption. Here we are using two Linux VMs, but this can be done on any system.
 
 ## Prerequisites
 
-- Two virtual machines (VMs) running Ubuntu 2022.
+- Two machines running Linux.
 - Basic knowledge of Linux command line.
-- VirtualBox or any other virtualization software.
 
 ## Setting Up Virtual Machines
 
 ### Client VM
 
-1. **Install Ubuntu 2022** on the client VM.
-2. **Configure Networking**: Assign a static IP address (e.g., `192.168.1.2`).
+**Configure Networking**: Assign a static IP address (e.g., `192.168.1.2`).
 
 ### Server VM
 
-1. **Install Ubuntu 2022** on the server VM.
-2. **Configure Networking**: Assign a static IP address (e.g., `192.168.1.1`).
+**Configure Networking**: Assign a static IP address (e.g., `192.168.1.1`).
 
 Ensure both VMs are on the same internal network to facilitate communication.
 
@@ -68,7 +69,7 @@ Ensure both VMs are on the same internal network to facilitate communication.
      input(type="imudp" port="514")
 
      module(load="imtcp")
-     input(type="imtcp" port="6514")
+     input(type="imtcp" port="514")
      ```
 
 3. **Restart rsyslog**:
